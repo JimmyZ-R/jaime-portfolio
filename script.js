@@ -1,0 +1,11 @@
+const links=document.querySelectorAll('.image-link,.mini a');
+const lightbox=document.getElementById('lightbox');
+const lightImg=lightbox.querySelector('img');
+links.forEach(a=>a.addEventListener('click',e=>{e.preventDefault();lightImg.src=a.getAttribute('href');lightbox.classList.add('open')}));
+lightbox.querySelector('button').addEventListener('click',()=>lightbox.classList.remove('open'));
+lightbox.addEventListener('click',e=>{if(e.target===lightbox)lightbox.classList.remove('open')});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')lightbox.classList.remove('open')});
+const filters=document.querySelectorAll('.filter'); const cards=document.querySelectorAll('.mini');
+filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(b=>b.classList.remove('active'));btn.classList.add('active');const f=btn.dataset.filter;cards.forEach(c=>c.style.display=f==='all'||c.dataset.cat===f?'':'none')}));
+const nav=document.querySelectorAll('nav a'); const sections=[...document.querySelectorAll('main section[id]')];
+window.addEventListener('scroll',()=>{let current='home';sections.forEach(s=>{if(scrollY>=s.offsetTop-160)current=s.id});nav.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current))},{passive:true});
