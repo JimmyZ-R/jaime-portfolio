@@ -5,11 +5,11 @@
     --panel: #070b19;
     --text: #f4f3ff;
     --muted: #8e92ad;
-    --line: rgba(142, 151, 255, .28);
+    --line: rgba(142, 151, 255, .24);
     --blue: #74a7ff;
     --violet: #9c68ff;
     --pink: #ff3ed1;
-    --glow: 0 0 25px rgba(132, 91, 255, .35)
+    --glow: 0 0 30px rgba(132, 91, 255, .28)
 }
 
 * {
@@ -41,7 +41,7 @@ body {
     top: 0;
     width: 190px;
     height: 100vh;
-    background: linear-gradient(180deg, rgba(3, 6, 18, .96), rgba(5, 5, 16, .88));
+    background: linear-gradient(180deg, rgba(3, 6, 18, .97), rgba(5, 5, 16, .9));
     border-right: 1px solid var(--line);
     display: flex;
     flex-direction: column;
@@ -147,7 +147,7 @@ main {
 }
 
 .hero {
-    height: 720px;
+    height: 760px;
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid var(--line);
@@ -157,9 +157,7 @@ main {
 .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('assets/cyber-bg.png');
-    background-size: cover;
-    background-position: center 44%;
+    background: url('assets/cyber-bg.png') center 44%/cover;
     filter: saturate(1.12) contrast(1.05)
 }
 
@@ -167,21 +165,21 @@ main {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, #050611 0%, rgba(5, 6, 17, .78) 20%, rgba(5, 6, 17, .25) 53%, rgba(5, 6, 17, .35)), linear-gradient(0deg, #050611 0%, transparent 28%)
+    background: linear-gradient(90deg, #050611 0%, rgba(5, 6, 17, .8) 20%, rgba(5, 6, 17, .2) 56%, rgba(5, 6, 17, .42)), linear-gradient(0deg, #050611 0%, transparent 30%)
 }
 
 .hero-vignette {
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 70% 35%, transparent 0, rgba(2, 3, 10, .1) 45%, rgba(2, 3, 10, .8) 100%);
+    background: radial-gradient(circle at 70% 35%, transparent 0, rgba(2, 3, 10, .1) 45%, rgba(2, 3, 10, .78) 100%);
     z-index: 1
 }
 
 .hero-content {
     position: relative;
     z-index: 3;
-    padding: 125px 8vw 0;
-    max-width: 760px
+    padding: 145px 8vw 0;
+    max-width: 850px
 }
 
 .eyebrow,
@@ -189,14 +187,6 @@ main {
     font-size: 10px;
     letter-spacing: 4px;
     color: #aebaff
-}
-
-.section-kicker2 {
-    font-size: 24px;
-    letter-spacing: 4px;
-    color: #aebaff;
-    font-family: Cinzel, serif;
-    
 }
 
 .eyebrow i {
@@ -227,19 +217,26 @@ em {
 .lead {
     font-size: 17px;
     color: #d0d2e5;
-    letter-spacing: .4px
+    letter-spacing: .2px;
+    max-width: 570px;
+    line-height: 1.6
 }
 
-.services {
-    font-size: 9px;
-    letter-spacing: 3px;
-    color: #9ea5c8;
-    margin-top: 30px
+.hero-tags {
+    display: flex;
+    gap: 9px;
+    flex-wrap: wrap;
+    margin-top: 25px
 }
 
-.services b {
-    color: #b76fff;
-    padding: 0 7px
+.hero-tags span {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #c4c8e5;
+    border: 1px solid rgba(145, 151, 255, .28);
+    padding: 9px 11px;
+    background: rgba(5, 7, 20, .25);
+    backdrop-filter: blur(6px)
 }
 
 .actions {
@@ -278,7 +275,7 @@ em {
     position: absolute;
     z-index: 2;
     right: 8%;
-    top: 95px;
+    top: 105px;
     width: 390px;
     height: 390px;
     border: 1px solid rgba(160, 135, 255, .35);
@@ -336,48 +333,182 @@ em {
 }
 
 .section {
-    padding: 85px 5.5vw
+    padding: 105px 5.5vw
 }
 
 .section-head {
     display: flex;
     justify-content: space-between;
     align-items: end;
-    margin-bottom: 27px
+    margin-bottom: 48px;
+    gap: 50px
 }
 
 .section-head h2,
 .about h2,
 .contact h2 {
     font-family: Cinzel, serif;
-    font-size: 30px;
+    font-size: 38px;
     font-weight: 400;
     letter-spacing: 4px;
+    line-height: 1.05;
     margin: 10px 0 0
 }
 
-.section-head>a {
-    color: #9299be;
-    text-decoration: none;
-    font-size: 9px;
-    letter-spacing: 2px
+.section-note {
+    max-width: 390px;
+    color: #777f9f;
+    font-size: 11px;
+    line-height: 1.8
 }
 
-.section-head>a span {
-    color: #b976ff;
-    font-size: 18px;
-    margin-left: 8px
+.selected {
+    background: linear-gradient(180deg, rgba(8, 8, 25, .15), rgba(7, 7, 20, .65))
 }
 
-.featured-grid {
+.featured-project {
+    display: grid;
+    grid-template-columns: 1.25fr .75fr;
+    gap: 50px;
+    align-items: center;
+    margin-bottom: 100px
+}
+
+.featured-project.reverse {
+    grid-template-columns: .75fr 1.25fr
+}
+
+.featured-project.reverse .featured-image {
+    order: 2
+}
+
+.featured-project.reverse .featured-copy {
+    order: 1
+}
+
+.featured-image {
+    position: relative;
+    border: 1px solid rgba(137, 148, 255, .25);
+    background: #070916;
+    padding: 8px;
+    box-shadow: 0 25px 80px rgba(49, 30, 110, .16)
+}
+
+.image-link {
+    display: block;
+    overflow: hidden;
+    position: relative
+}
+
+.image-link img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: .55s
+}
+
+.featured-image .image-link {
+    aspect-ratio: 1.38/1
+}
+
+.image-link:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(3, 5, 15, .5), transparent 50%);
+    pointer-events: none
+}
+
+.featured-image:hover img,
+.project-card:hover img,
+.mini:hover img {
+    transform: scale(1.045)
+}
+
+.project-number {
+    position: absolute;
+    left: 23px;
+    bottom: 20px;
+    z-index: 2;
+    font-family: Cinzel, serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #d7d8ff
+}
+
+.featured-copy .tag,
+.project-info .tag {
+    font-size: 8px;
+    letter-spacing: 2px;
+    color: #a98aff
+}
+
+.featured-copy h3 {
+    font-family: Cinzel, serif;
+    font-size: 34px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    margin: 14px 0
+}
+
+.featured-copy>p {
+    font-size: 12px;
+    line-height: 1.9;
+    color: #979db8;
+    max-width: 520px
+}
+
+.meta-row {
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+    border-top: 1px solid rgba(128, 141, 255, .18);
+    border-bottom: 1px solid rgba(128, 141, 255, .18);
+    padding: 14px 0;
+    margin: 28px 0 18px
+}
+
+.meta-row span {
+    font-size: 7px;
+    letter-spacing: 2px;
+    color: #767e9d
+}
+
+.process {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px
+}
+
+.process div {
+    min-width: 0
+}
+
+.process img {
+    width: 100%;
+    aspect-ratio: 1.25/1;
+    object-fit: cover;
+    display: block;
+    border: 1px solid rgba(128, 141, 255, .18)
+}
+
+.process small {
+    display: block;
+    font-size: 7px;
+    letter-spacing: 2px;
+    color: #686f8e;
+    margin-top: 7px
+}
+
+.selected-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 12px
+    gap: 12px;
+    margin-top: 20px
 }
 
 .project-card {
-    position: relative;
-    min-width: 0;
     background: linear-gradient(180deg, #0a0e20, #050714);
     border: 1px solid rgba(128, 142, 255, .25);
     overflow: hidden;
@@ -390,49 +521,12 @@ em {
     box-shadow: 0 18px 45px rgba(76, 49, 159, .24)
 }
 
-.image-link {
-    display: block;
-    aspect-ratio: 1.05/1;
-    overflow: hidden;
-    position: relative
-}
-
-.image-link img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: .5s
-}
-
-.project-card:hover img {
-    transform: scale(1.06)
-}
-
-.image-link:after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(3, 5, 15, .75), transparent 55%)
-}
-
-.corner {
-    position: absolute;
-    right: 14px;
-    bottom: 12px;
-    z-index: 2;
-    color: white;
-    font-size: 20px
+.project-card .image-link {
+    aspect-ratio: 1.05/1
 }
 
 .project-info {
     padding: 17px 18px 20px
-}
-
-.tag {
-    font-size: 8px;
-    letter-spacing: 2px;
-    color: #a98aff
 }
 
 .project-info h3 {
@@ -447,22 +541,29 @@ em {
     font-size: 9px;
     color: #858cae;
     letter-spacing: 1px;
-    margin: 0
+    margin: 0;
+    line-height: 1.5
+}
+
+.all-work {
+    border-top: 1px solid var(--line)
+}
+
+.compact {
+    margin-bottom: 30px
 }
 
 .explore-bar {
     display: flex;
     align-items: center;
-    margin: 55px 0 24px;
+    margin: 0 0 28px;
     border-top: 1px solid var(--line);
     border-bottom: 1px solid var(--line);
-    min-height: 70px;
-    gap: 0
+    min-height: 70px
 }
 
 .explore-bar>span {
     font-size: 8px;
-    line-height: 1.7;
     letter-spacing: 3px;
     color: #73799d;
     padding: 0 24px 0 4px
@@ -515,7 +616,6 @@ em {
 }
 
 .mini:hover img {
-    transform: scale(1.04);
     filter: saturate(1.15)
 }
 
@@ -665,6 +765,11 @@ em {
     letter-spacing: 3px
 }
 
+.contact .btn {
+    position: relative;
+    z-index: 2
+}
+
 footer {
     border-top: 1px solid var(--line);
     padding: 23px 5.5vw;
@@ -718,6 +823,28 @@ footer {
     opacity: .25
 }
 
+@media(max-width:1100px) {
+    .selected-grid {
+        grid-template-columns: repeat(2, 1fr)
+    }
+
+    .featured-project,
+    .featured-project.reverse {
+        grid-template-columns: 1fr;
+        gap: 30px
+    }
+
+    .featured-project.reverse .featured-image,
+    .featured-project.reverse .featured-copy {
+        order: initial
+    }
+
+    .hero-orbit {
+        right: 0;
+        opacity: .55
+    }
+}
+
 @media(max-width:1000px) {
     .site-shell {
         display: block
@@ -759,8 +886,10 @@ footer {
     }
 
     nav a {
-        font-size: 9px;
-        padding: 10px 7px
+        font-size: 8px;
+        padding: 11px 7px;
+        border-left: 0;
+        border-bottom: 1px solid transparent
     }
 
     nav a span {
@@ -772,24 +901,31 @@ footer {
     }
 
     main {
-        padding-top: 65px
+        grid-column: auto
     }
 
     .hero {
-        height: 650px
+        height: 720px
     }
 
     .hero-content {
-        padding: 110px 7vw 0
+        padding: 125px 7vw 0
     }
 
     .hero-orbit {
-        right: -100px;
-        top: 110px
+        width: 300px;
+        height: 300px;
+        top: 125px;
+        right: -80px
     }
 
-    .featured-grid {
-        grid-template-columns: repeat(2, 1fr)
+    .section {
+        padding: 80px 7vw
+    }
+
+    .about {
+        grid-template-columns: 1fr;
+        gap: 40px
     }
 
     .skills-grid {
@@ -798,100 +934,105 @@ footer {
 }
 
 @media(max-width:650px) {
-
-    nav a:nth-child(2),
-    nav a:nth-child(4) {
-        display: none
-    }
-
     .hero {
-        height: 610px
-    }
-
-    .hero-bg {
-        background-position: 60% center
+        height: 700px
     }
 
     .hero-content {
-        padding: 85px 25px 0
+        padding: 120px 7vw 0
     }
 
     .hero h1 {
         font-size: 52px
     }
 
+    .eyebrow {
+        font-size: 8px;
+        line-height: 1.8
+    }
+
+    .eyebrow i {
+        width: 25px;
+        margin: 0 6px
+    }
+
+    .lead {
+        font-size: 14px
+    }
+
     .hero-orbit {
-        width: 270px;
-        height: 270px;
-        right: -100px;
-        top: 180px;
-        opacity: .5
+        width: 230px;
+        height: 230px;
+        top: 360px;
+        right: -75px;
+        opacity: .45
     }
 
     .hero-caption {
-        display: none
+        right: 7%;
+        bottom: 65px;
+        font-size: 7px
     }
 
-    .section {
-        padding: 65px 22px
+    .actions {
+        flex-wrap: wrap
     }
 
     .section-head {
         display: block
     }
 
-    .section-head>a {
-        display: block;
-        margin-top: 16px
+    .section-note {
+        margin-top: 22px
     }
 
-    .featured-grid,
-    .all-grid {
+    .section-head h2,
+    .about h2 {
+        font-size: 29px
+    }
+
+    .featured-copy h3 {
+        font-size: 28px
+    }
+
+    .selected-grid,
+    .all-grid,
+    .skills-grid {
         grid-template-columns: 1fr
+    }
+
+    .process {
+        grid-template-columns: repeat(3, 1fr)
     }
 
     .explore-bar {
-        overflow: auto;
-        white-space: nowrap
-    }
-
-    .explore-bar>span {
-        min-width: 110px
+        overflow: auto
     }
 
     .filter {
-        padding: 0 14px
+        white-space: nowrap
     }
 
-    .about {
-        grid-template-columns: 1fr;
-        gap: 35px
+    .contact h2 {
+        font-size: 36px
     }
 
-    .skills-grid {
-        grid-template-columns: 1fr
+    .contact-meta {
+        flex-direction: column;
+        gap: 12px
     }
 
     .tech {
         gap: 25px
     }
 
-    .contact h2 {
-        font-size: 33px
-    }
-
-    .contact-meta {
-        flex-direction: column;
-        gap: 13px
-    }
-
     footer {
         display: block;
-        line-height: 2.2
+        line-height: 2
     }
 
     footer span {
         display: block;
-        margin-top: 5px
+        margin-top: 8px
     }
 }
